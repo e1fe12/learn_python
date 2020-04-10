@@ -5,7 +5,7 @@ from bisect import bisect_left
 def binary_search(a: list, k: int):
     l, r = 0, len(a)
     while l + 1 < r:
-        mid = (l + r) // 2
+        mid = l + (r - l) // 2
         if a[mid] <= k:
             l = mid
         else:
