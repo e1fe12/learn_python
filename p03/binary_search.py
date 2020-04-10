@@ -1,4 +1,5 @@
 import sys
+from bisect import bisect_left
 
 
 def binary_search(a: list, k: int):
@@ -16,7 +17,11 @@ def main():
     reader = (tuple(map(int, line.split())) for line in sys.stdin)
     n, *a = next(reader)
     k, *b = next(reader)
-    ans = [binary_search(a, x) for x in b]
+    # ans = [binary_search(a, x) for x in b]
+    ans = []
+    for x in b:
+        l = bisect_left(a, x)
+        ans.append(l + 1 if l < len(a) and a[l] == x else -1)
     print(*ans)
 
 
