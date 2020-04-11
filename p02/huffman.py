@@ -48,10 +48,10 @@ def huffman_decode_test():
     n, _ = map(int, input().split())
     codes = {}
     for i in range(n):
-        v, k = input().split(': ')
+        k, v = input().split(': ')
         codes[k] = v
     encoded = input()
-    print(huffman_decode(codes, encoded))
+    print(huffman_decode(encoded, codes))
 
 
 def huffman_encode_test():
